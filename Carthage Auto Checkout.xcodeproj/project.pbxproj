@@ -12,7 +12,23 @@
 		D26884C421481CBD0067F9A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26884C221481CBD0067F9A2 /* Main.storyboard */; };
 		D26884C621481CBE0067F9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26884C521481CBE0067F9A2 /* Assets.xcassets */; };
 		D26884C921481CBE0067F9A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26884C721481CBE0067F9A2 /* LaunchScreen.storyboard */; };
+		D2F022462148E8A900EB061A /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F022452148E8A900EB061A /* KeychainAccess.framework */; };
+		D2F022472148E8A900EB061A /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2F022452148E8A900EB061A /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D2F022482148E8AA00EB061A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D2F022472148E8A900EB061A /* KeychainAccess.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D26884BB21481CBD0067F9A2 /* Carthage Auto Checkout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Carthage Auto Checkout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +38,9 @@
 		D26884C521481CBE0067F9A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D26884C821481CBE0067F9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D26884CA21481CBE0067F9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D26884D021481E000067F9A2 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
+		D26884D121481E000067F9A2 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		D2F022452148E8A900EB061A /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2F022462148E8A900EB061A /* KeychainAccess.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +58,9 @@
 		D26884B221481CBD0067F9A2 = {
 			isa = PBXGroup;
 			children = (
+				D2F022452148E8A900EB061A /* KeychainAccess.framework */,
+				D26884D121481E000067F9A2 /* Cartfile */,
+				D26884D021481E000067F9A2 /* Cartfile.resolved */,
 				D26884BD21481CBD0067F9A2 /* Carthage Auto Checkout */,
 				D26884BC21481CBD0067F9A2 /* Products */,
 			);
@@ -71,9 +94,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D26884CD21481CBE0067F9A2 /* Build configuration list for PBXNativeTarget "Carthage Auto Checkout" */;
 			buildPhases = (
+				D2F022492148E95A00EB061A /* Sync Dependencies */,
 				D26884B721481CBD0067F9A2 /* Sources */,
 				D26884B821481CBD0067F9A2 /* Frameworks */,
 				D26884B921481CBD0067F9A2 /* Resources */,
+				D2F022482148E8AA00EB061A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +154,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D2F022492148E95A00EB061A /* Sync Dependencies */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Sync Dependencies";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./carthage-workflows/carthage-verify --no_skip_missing\n\nif [ \"$?\" -ne \"0\" ]; then\n    carthage bootstrap --platform iOS --cache-builds\nelse\n    echo \"All dependencies in sync\"\nfi\n\n\n\n\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D26884B721481CBD0067F9A2 /* Sources */ = {
@@ -282,6 +324,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DZ92W4V2G9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Carthage Auto Checkout/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +346,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DZ92W4V2G9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Carthage Auto Checkout/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
