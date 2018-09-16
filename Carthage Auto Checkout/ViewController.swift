@@ -8,6 +8,7 @@
 
 import UIKit
 import KeychainAccess
+import Result
 
 class ViewController: UIViewController {
 
@@ -17,7 +18,10 @@ class ViewController: UIViewController {
 
         let keychain = Keychain()
         keychain["test"] = "value"
-        print(keychain["test"] ?? "no value")
+        print(keychain["test"] ?? "no value in keychain")
+
+        let result = Result<Int, NSError>(value: 0)
+        print(result.value ?? "no value in result")
     }
 }
 

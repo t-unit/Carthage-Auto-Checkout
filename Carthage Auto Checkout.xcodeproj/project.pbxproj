@@ -12,6 +12,8 @@
 		D26884C421481CBD0067F9A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26884C221481CBD0067F9A2 /* Main.storyboard */; };
 		D26884C621481CBE0067F9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26884C521481CBE0067F9A2 /* Assets.xcassets */; };
 		D26884C921481CBE0067F9A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26884C721481CBE0067F9A2 /* LaunchScreen.storyboard */; };
+		D28A1AA1214E5C5700137A64 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D28A1AA0214E5C5600137A64 /* Result.framework */; };
+		D28A1AA2214E5C5700137A64 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D28A1AA0214E5C5600137A64 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D2F022462148E8A900EB061A /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2F022452148E8A900EB061A /* KeychainAccess.framework */; };
 		D2F022472148E8A900EB061A /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D2F022452148E8A900EB061A /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -24,6 +26,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D2F022472148E8A900EB061A /* KeychainAccess.framework in Embed Frameworks */,
+				D28A1AA2214E5C5700137A64 /* Result.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +43,7 @@
 		D26884CA21481CBE0067F9A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D26884D021481E000067F9A2 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 		D26884D121481E000067F9A2 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		D28A1AA0214E5C5600137A64 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		D2F022452148E8A900EB061A /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2F022462148E8A900EB061A /* KeychainAccess.framework in Frameworks */,
+				D28A1AA1214E5C5700137A64 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +63,7 @@
 		D26884B221481CBD0067F9A2 = {
 			isa = PBXGroup;
 			children = (
+				D28A1AA0214E5C5600137A64 /* Result.framework */,
 				D2F022452148E8A900EB061A /* KeychainAccess.framework */,
 				D26884D121481E000067F9A2 /* Cartfile */,
 				D26884D021481E000067F9A2 /* Cartfile.resolved */,

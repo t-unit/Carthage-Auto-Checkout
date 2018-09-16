@@ -1,2 +1,3 @@
 github "kishikawakatsumi/KeychainAccess" == 3.0.0
 github "ReactiveX/RxSwift"
+github "antitypical/Result"
